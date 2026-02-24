@@ -84,7 +84,7 @@ export default function Header() {
                             <Link href="/servicios" onClick={closeMenu} className="hover:text-[#D12E7B] transition-colors uppercase">Servicios</Link>
                         </li>
                         <li>
-                            <Link href="/medicos" onClick={closeMenu} className="hover:text-[#D12E7B] transition-colors uppercase">Resultados</Link>
+                            <Link href="/resultados" onClick={closeMenu} className="hover:text-[#D12E7B] transition-colors uppercase">Resultados</Link>
                         </li>
                         
                         <li className="mt-4 md:mt-0">

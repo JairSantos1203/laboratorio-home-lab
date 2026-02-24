@@ -5,6 +5,7 @@ import ServiciosFlip from "@/app/components/ServiciosFlip";
 import Estadisticas from "@/app/components/Estadisticas";
 import DoctorsSection from "@/app/components/ResultadoSection";
 import TeamSection from "@/app/components/TeamSection";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -70,49 +71,54 @@ export default function Home() {
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 flex flex-col md:flex-row items-center justify-around gap-8 md:gap-4">
               
               {/* Acción 1: Resultados */}
-              <div className="flex flex-col items-center group cursor-pointer flex-1">
-                <div className="mb-4 text-[#333333] group-hover:text-[#D12E7B] transition-colors duration-300">
-                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <div className="w-6 h-1 bg-[#D12E7B] mb-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#333333] text-center group-hover:text-[#D12E7B] transition-colors">
-                  Resultados Online
-                </span>
+            <Link href="/resultados" className="flex-1 flex flex-col items-center group cursor-pointer">
+              <div className="mb-4 text-[#333333] group-hover:text-[#D12E7B] transition-colors duration-300">
+                <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
               </div>
+              <div className="w-6 h-1 bg-[#D12E7B] mb-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#333333] text-center group-hover:text-[#D12E7B] transition-colors">
+                Resultados Online
+              </span>
+            </Link>
 
-              {/* Divisor Desktop */}
-              <div className="hidden md:block w-px h-16 bg-gray-200" />
+            {/* Divisor Desktop */}
+            <div className="hidden md:block w-px h-16 bg-gray-200" />
 
-              {/* Acción 2: Cotizador (Destacado en Magenta) */}
-              <div className="flex flex-col items-center group cursor-pointer flex-1">
-                <div className="mb-4 text-[#D12E7B]">
-                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <div className="w-10 h-1 bg-[#D12E7B] mb-3" />
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#D12E7B] text-center">
-                  Cotiza tu análisis
-                </span>
+            {/* Acción 2: Cotizador (WhatsApp) */}
+            <a 
+              href="https://wa.me/51999999999?text=Hola%20HomeLab,%20me%20gustaría%20cotizar%20un%20análisis%20clínico." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-1 flex flex-col items-center group cursor-pointer"
+            >
+              <div className="mb-4 text-[#D12E7B] group-hover:scale-110 transition-transform duration-300">
+                <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </div>
+              <div className="w-10 h-1 bg-[#D12E7B] mb-3" />
+              <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#D12E7B] text-center">
+                Cotiza tu análisis
+              </span>
+            </a>
 
-              {/* Divisor Desktop */}
-              <div className="hidden md:block w-px h-16 bg-gray-200" />
+            {/* Divisor Desktop */}
+            <div className="hidden md:block w-px h-16 bg-gray-200" />
 
-              {/* Acción 3: Domicilio */}
-              <div className="flex flex-col items-center group cursor-pointer flex-1">
-                <div className="mb-4 text-[#333333] group-hover:text-[#D12E7B] transition-colors duration-300">
-                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                </div>
-                <div className="w-6 h-1 bg-[#D12E7B] mb-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#333333] text-center group-hover:text-[#D12E7B] transition-colors">
-                  Servicio a domicilio
-                </span>
+            {/* Acción 3: Domicilio (Sin cambios de funcionalidad aún) */}
+            <div className="flex-1 flex flex-col items-center group cursor-not-allowed">
+              <div className="mb-4 text-[#333333] group-hover:text-[#D12E7B] transition-colors duration-300">
+                <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
               </div>
+              <div className="w-6 h-1 bg-[#D12E7B] mb-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#333333] text-center group-hover:text-[#D12E7B] transition-colors">
+                Servicio a domicilio
+              </span>
+            </div>
 
             </div>
           </div>

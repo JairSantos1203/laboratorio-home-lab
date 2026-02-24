@@ -5,26 +5,26 @@ import Link from "next/link";
 const pasosResultados = [
     {
         id: 1,
-        titulo: "Seguridad Biométrica",
+        titulo: "Seguridad de Laboratorio",
         descripcion:
-            "Tus datos están protegidos bajo protocolos de encriptación de grado médico, garantizando que solo tú accedas a tu información.",
-        imagen: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800", // Imagen de seguridad/tech
-        etiqueta: "Protección"
+            "Implementamos estándares internacionales de bioseguridad y protección de datos médicos. Tus muestras y resultados son procesados bajo estricta confidencialidad y rigor científico.",
+        imagen: "/images/seguridad.avif",
+        etiqueta: "Confianza"
     },
     {
         id: 2,
-        titulo: "Historial Digital",
+        titulo: "Resultados Online",
         descripcion:
-            "Mantén un registro organizado de todos tus análisis pasados. Compara tus valores y observa tu evolución clínica en segundos.",
-        imagen: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800", // Imagen de análisis/data
-        etiqueta: "Organización"
+            "Accede a tus informes clínicos de manera instantánea. Nuestra plataforma te permite visualizar y descargar tus análisis con total claridad, eliminando la necesidad de traslados físicos.",
+        imagen: "/images/resultados.avif",
+        etiqueta: "Agilidad"
     },
     {
         id: 3,
         titulo: "Disponibilidad 24/7",
         descripcion:
-            "Ya no dependes de horarios de oficina. Descarga, imprime o comparte tus resultados con tu médico desde cualquier lugar del mundo.",
-        imagen: "https://images.unsplash.com/photo-1516542019137-ee2c223add37?q=80&w=800", // Imagen de tablet/movilidad
+            "Tu salud no tiene horario. El portal de HomeLab permanece activo las 24 horas del día, permitiéndote consultar tu historial médico en el momento exacto en que tú o tu médico lo necesiten.",
+        imagen: "/images/disponibilidad.jpg",
         etiqueta: "Acceso Total"
     },
 ];
@@ -54,9 +54,6 @@ export default function ResultsGrid() {
                         Gestiona tus <span className="text-[#D12E7B]">Resultados</span>
                     </h2>
                     <div className="w-24 h-1.5 bg-[#D12E7B] mx-auto rounded-full" />
-                    <p className="text-gray-500 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Tecnología diseñada para que tomes el control de tu salud de manera ágil y segura.
-                    </p>
                 </motion.div>
 
                 {/* Grid de tarjetas de beneficios */}
@@ -70,34 +67,35 @@ export default function ResultsGrid() {
                             viewport={{ once: true }}
                             className="group h-full"
                         >
-                            <div className="bg-white rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 flex flex-col h-full relative">
+                            <div className="bg-white rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full relative p-8">
                                 
-                                {/* Imagen con Label Flotante */}
-                                <div className="relative h-64 overflow-hidden">
+                                {/* Etiqueta Flotante Superior */}
+                                <div className="absolute top-6 left-6 z-20">
+                                    <span className="bg-[#D12E7B] text-white text-[9px] font-black uppercase tracking-widest py-1.5 px-4 rounded-full shadow-md">
+                                        {item.etiqueta}
+                                    </span>
+                                </div>
+
+                                {/* CONTENEDOR DE IMAGEN CENTRADA (Estilo Referencia) */}
+                                <div className="relative w-full aspect-square max-h-[220px] bg-gray-50 rounded-[2rem] flex items-center justify-center mb-8 overflow-hidden border border-gray-50">
                                     <img
                                         src={item.imagen}
                                         alt={item.titulo}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                        className="w-4/5 h-4/5 object-contain group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    <div className="absolute top-4 left-4">
-                                        <span className="bg-[#D12E7B] text-white text-[10px] font-black uppercase tracking-widest py-2 px-4 rounded-full shadow-lg">
-                                            {item.etiqueta}
-                                        </span>
-                                    </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
                                 </div>
 
-                                {/* Contenido */}
-                                <div className="p-8 flex flex-col flex-grow text-center items-center">
-                                    <h3 className="text-2xl font-black text-[#333333] mb-4 uppercase tracking-tight">
+                                {/* Contenido de Texto */}
+                                <div className="flex flex-col flex-grow text-center items-center">
+                                    <h3 className="text-xl font-black text-[#333333] mb-4 uppercase tracking-tight leading-tight">
                                         {item.titulo}
                                     </h3>
                                     <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                                         {item.descripcion}
                                     </p>
                                     
-                                    {/* Icono decorativo de paso */}
-                                    <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#D12E7B] font-black border border-gray-100">
+                                    {/* Indicador de número inferior */}
+                                    <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#D12E7B] font-black border border-gray-100 text-xs mt-auto">
                                         0{item.id}
                                     </div>
                                 </div>
@@ -118,9 +116,9 @@ export default function ResultsGrid() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="relative inline-flex items-center justify-center px-12 py-5 text-xs font-black uppercase tracking-[0.3em] text-white bg-[#333333] rounded-full shadow-2xl transition-all duration-300 overflow-hidden group"
+                            className="relative inline-flex items-center justify-center px-12 py-5 text-[11px] font-black uppercase tracking-[0.3em] text-white bg-[#333333] rounded-full shadow-2xl transition-all duration-300 overflow-hidden group"
                         >
-                            <span className="relative z-10">Ingresar al Portal</span>
+                            <span className="relative z-10">Ver resultados y solicitarlos</span>
                             <span className="absolute inset-0 bg-[#D12E7B] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </motion.button>
                     </Link>
