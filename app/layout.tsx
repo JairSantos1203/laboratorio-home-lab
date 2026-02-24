@@ -1,8 +1,14 @@
-import Header from './components/Header';
-import OfertaPopup from './components/OfertaPopup';
-import Footer from './components/Footer'; // Ajusta la ruta según dónde creaste la carpeta
-import WhatsAppFloat from './components/WhatsAppFloat';
+// app/layout.tsx
 import './globals.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
+import LoadingScreen from './components/LoadingScreen'; 
+
+export const metadata = {
+  title: 'HomeLab - Laboratorio Clínico',
+  description: 'Innovación y precisión en cada análisis',
+};
 
 export default function RootLayout({
   children,
@@ -11,13 +17,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
-        <Header /> {/* El Header se renderiza arriba de todo */}
-        <main>{children}</main>
-        <OfertaPopup />
+      <body className="antialiased">
+        {/* Pantalla de carga inicial */}
+        <LoadingScreen /> 
+
+        {/* Navegación global */}
+        <Header /> 
+        
+        <main>
+          {children}
+        </main>
+
+        {/* Componentes flotantes y globales */}
+        
         <WhatsAppFloat />
         <Footer />
       </body>
     </html>
   );
 }
+
+
+

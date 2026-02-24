@@ -67,3 +67,18 @@ body {
 .animate-cascade {
   animation: cascade 0.8s ease-out forwards;
 }
+
+:root {
+  --primary-magenta: #D12E7B;
+  --dark-grey: #333333;
+  --soft-bg: #f4f4f4;
+}
+
+/* Ejemplo de botón estilo HomeLab */
+.btn-primary {
+  background-color: var(--primary-magenta);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
