@@ -51,17 +51,24 @@ export default function AsesorSection() {
                         </h2>
                         
                         <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                            {/* Botón WhatsApp Estilo HomeLab */}
-                            <button className="flex items-center gap-3 bg-[#333333] hover:bg-black text-white font-black text-xs tracking-widest py-4 px-9 rounded-full transition-all duration-300 shadow-xl transform hover:-translate-y-1 uppercase">
-                                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.284l-.549 2.012 2.057-.54c.952.518 1.989.814 3.241.815 3.179 0 5.765-2.586 5.766-5.766 0-3.18-2.586-5.771-5.766-5.771zm3.374 8.204c-.161.451-.93.822-1.291.876-.361.055-.81.082-2.324-.523-1.834-.732-3.033-2.593-3.124-2.714-.091-.121-.741-.983-.741-1.87 0-.887.466-1.322.632-1.503.166-.181.362-.226.482-.226s.241.002.346.006c.11.004.258-.041.405.318.151.365.511 1.248.556 1.339.045.09.075.195.015.315-.06.12-.09.195-.181.301-.09.105-.19.233-.27.315-.089.091-.183.189-.078.368.105.179.467.77.999 1.241.685.607 1.261.796 1.441.886.18.09.285.075.39.195.105.12.451.526.571.706.12.18.24.285.451.33.21.045.722.255.822.465.1.21.1.391.04.571z"/>
-                                </svg>
-                                Contactar
-                            </button>
-                            {/* Botón Secundario */}
+                           {/* Botón WhatsApp Estilo HomeLab con Mensaje Predeterminado */}
+                            <a 
+                                href="https://wa.me/51947052846?text=Hola%20HomeLab,%20deseo%20obtener%20más%20información%20para%20realizarme%20analisis." 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-block" // Para que el enlace respete el tamaño del botón
+                            >
+                                <button className="flex items-center gap-3 bg-[#333333] hover:bg-black text-white font-black text-xs tracking-widest py-4 px-9 rounded-full transition-all duration-300 shadow-xl transform hover:-translate-y-1 uppercase">
+                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.284l-.549 2.012 2.057-.54c.952.518 1.989.814 3.241.815 3.179 0 5.765-2.586 5.766-5.766 0-3.18-2.586-5.771-5.766-5.771zm3.374 8.204c-.161.451-.93.822-1.291.876-.361.055-.81.082-2.324-.523-1.834-.732-3.033-2.593-3.124-2.714-.091-.121-.741-.983-.741-1.87 0-.887.466-1.322.632-1.503.166-.181.362-.226.482-.226s.241.002.346.006c.11.004.258-.041.405.318.151.365.511 1.248.556 1.339.045.09.075.195.015.315-.06.12-.09.195-.181.301-.09.105-.19.233-.27.315-.089.091-.183.189-.078.368.105.179.467.77.999 1.241.685.607 1.261.796 1.441.886.18.09.285.075.39.195.105.12.451.526.571.706.12.18.24.285.451.33.21.045.722.255.822.465.1.21.1.391.04.571z"/>
+                                    </svg>
+                                    Contactar
+                                </button>
+                            </a>
+                            {/* Botón Secundario 
                             <button className="border-2 border-gray-200 hover:border-[#D12E7B] text-[#333333] font-black text-xs tracking-widest py-4 px-9 rounded-full transition-all duration-300 uppercase">
                                 Cotizar en web
-                            </button>
+                            </button>*/}
                         </div>
                     </div>
 
@@ -76,15 +83,17 @@ export default function AsesorSection() {
                             }}
                         >
                             {/* Imagen de la especialista (Debe ser PNG transparente) */}
-                            <div className="absolute bottom-0 w-[90%] h-[95%] flex items-end justify-center">
-                                <Image
-                                    src="/images/especialista-asesor.png" 
-                                    alt="Asesor Especializado HomeLab"
-                                    width={600}
-                                    height={600}
-                                    className="object-contain transition-transform duration-500 hover:scale-105"
-                                    priority
-                                />
+                            <div className="absolute inset-0 flex items-end justify-center overflow-hidden">
+                                <div className="relative w-[85%] h-[90%] flex items-end justify-center">
+                                    <Image
+                                        src="/images/especialista1.png" 
+                                        alt="Asesor Especializado HomeLab"
+                                        width={700} // Aumentamos un poco el ancho base para mejor resolución
+                                        height={700}
+                                        className="object-contain w-full h-full transition-transform duration-700 hover:scale-105 select-none"
+                                        priority
+                                    />
+                                </div>
                             </div>
                         </div>
                         

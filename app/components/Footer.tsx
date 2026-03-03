@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, ChevronRight, Microscope, Linkedin, Youtube, Beaker } from 'lucide-react';
+import Image from "next/image";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -23,9 +24,17 @@ export default function Footer() {
                     <div className="lg:col-span-4 space-y-6">
                         <div className="flex items-center space-x-3">
                             <div className="bg-white/10 rounded-xl p-1">
-                                <div className="bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center shadow-lg">
-                                    {/* Logo de HomeLab */}
-                                    <span className="text-[#333333] font-black text-xl leading-none text-center">HOME<br/><span className="text-[#D12E7B]">LAB</span></span>
+                                <div className="bg-white rounded-lg p-2 w-16 h-16 flex items-center justify-center shadow-lg overflow-hidden">
+                                    {/* Logo de HomeLab en Imagen */}
+                                    <div className="relative w-full h-full">
+                                        <Image
+                                            src="/images/logoPrincipal.jpg"
+                                            alt="Logo HomeLab"
+                                            fill
+                                            className="object-contain"
+                                            priority
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex flex-col justify-center">
@@ -63,15 +72,23 @@ export default function Footer() {
 
                     {/* Servicios de Laboratorio */}
                     <div className="lg:col-span-3 mt-4 lg:mt-0">
-                        <h3 className="text-lg font-bold mb-6 relative">
-                            Análisis Clínicos
+                        <h3 className="text-lg font-bold mb-6 relative text-white">
+                            Laboratorio clínico
                             <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#D12E7B] rounded-full"></span>
                         </h3>
                         <ul className="space-y-3 text-sm">
-                            {['Hematología', 'Bioquímica', 'Inmunología', 'Microbiología', 'Marcadores Tumorales', 'Hormonas', 'Perfil Lipídico', 'Toma a Domicilio'].map((service, idx) => (
-                                <li key={idx} className="flex items-center text-gray-400 group cursor-default">
-                                    <Beaker size={10} className="mr-2 text-[#D12E7B] fill-[#D12E7B]/20" />
-                                    <span className="group-hover:text-white transition-colors">{service}</span>
+                            {['Hematología', 'Bioquímica', 'Inmunología', 'Microbiología', 'Parasitología', 'Coprología'].map((service, idx) => (
+                                <li key={idx}>
+                                    <a 
+                                        href={`/servicios`} 
+                                        className="flex items-center text-gray-400 hover:text-white group transition-all duration-300 ease-in-out transform hover:translate-x-1 cursor-pointer"
+                                    >
+                                        <Beaker 
+                                            size={14} 
+                                            className="mr-2 text-[#D12E7B] fill-[#D12E7B]/20 group-hover:scale-110 transition-transform" 
+                                        />
+                                        <span>{service}</span>
+                                    </a>
                                 </li>
                             ))}
                         </ul>

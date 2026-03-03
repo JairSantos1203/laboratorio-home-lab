@@ -1,35 +1,27 @@
 export const servicios = [
     {
-        image: "../images/servicioemergencia.png",
-        title: "Emergencia 24/7",
-        description: "Atención inmediata las 24 horas, los 365 días del año, con médicos especializados y ambulancia equipada.",
+        image: "../images/bio1.png",
+        title: "Bioquímica",
+        description: "Análisis precisos de componentes químicos en sangre y fluidos corporales para evaluar el funcionamiento de órganos vitales.",
     },
     {
-        image: "../images/serviciointensivo.png",
-        title: "Intensivo",
-        description: "Cuidados de alta complejidad con tecnología avanzada y un equipo multidisciplinario enfocado en la recuperación humanizada del paciente..",
-    },
-
-    {
-        image: "../images/serviciohospitalizacion.png",
-        title: "Hospitalización",
-        description: "Habitaciones confortables y atención personalizada. Contamos con habitaciones individuales y compartidas.",
+        image: "../images/hema.png",
+        title: "Hematología",
+        description: "Estudio integral de las células sanguíneas y coagulación para la detección de anemias, infecciones y patologías hematológicas.",
     },
     {
-        image: "../images/serviciospecialización.png",
-        title: "Especialización",
-        description: "Unidad especializada en hemoterapia y donaciones seguras. Procesamos y almacenamos componentes sanguíneos.",
-    },
-
-    {
-        image: "../images/serviciosfarmacia.png",
-        title: "Farmacia",
-        description: "Medicamentos disponibles a cualquier hora para tu tratamiento. Asesoría farmacéutica personalizada.",
+        image: "../images/inmu.png",
+        title: "Inmunología",
+        description: "Pruebas especializadas para detectar anticuerpos y antígenos, diagnosticando enfermedades autoinmunes e infecciosas.",
     },
     {
-        image: "../images/serviciosalaoperacion.png",
-        title: "Sala de Operación",
-        description: "Monitoreo constante y equipamiento avanzado para pacientes críticos. Staff multidisciplinario 24/7.",
+        image: "../images/micro.png",
+        title: "Microbiología",
+        description: "Identificación de microorganismos y pruebas de sensibilidad para determinar el tratamiento antibiótico más eficaz.",
     },
-
+    {
+        image: "../images/para.png",
+        title: "PARASITOLOGIA / COPROLOGIA",
+        description: "Exámenes especializados de muestras biológicas para la detección de parásitos y evaluación del sistema digestivo.",
+    },
 ];

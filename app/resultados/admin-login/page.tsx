@@ -4,15 +4,19 @@ import { useRouter } from "next/navigation";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  
+  
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí luego pondremos la validación real. Por ahora, simula el acceso.
-    if (password === "admin123") {
+    
+   
+    if (username === "homelab" && password === "admin123") {
         router.push("/resultados/admin-dashboard");
     } else {
-        alert("Contraseña incorrecta");
+        alert("Usuario o contraseña incorrectos");
     }
   };
 
@@ -31,8 +35,12 @@ export default function AdminLoginPage() {
             <label className="block text-[#D12E7B] font-black uppercase text-[10px] tracking-[0.2em] mb-2">Usuario:</label>
             <input 
               type="text" 
-              defaultValue="admin_homelab"
-              className="w-full bg-gray-50 border-2 border-transparent focus:border-[#D12E7B]/20 outline-none rounded-xl py-3 px-4 font-bold text-[#333333]"
+              
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Ingresa tu usuario"
+              className="w-full bg-gray-50 border-2 border-transparent focus:border-[#D12E7B]/20 outline-none rounded-xl py-3 px-4 font-bold text-[#333333] placeholder:opacity-30"
+              required
             />
           </div>
 
@@ -42,8 +50,9 @@ export default function AdminLoginPage() {
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              placeholder="Contraseña"
               className="w-full bg-gray-50 border-2 border-transparent focus:border-[#D12E7B]/20 outline-none rounded-xl py-3 px-4 font-bold"
+              required
             />
           </div>
 
@@ -56,8 +65,12 @@ export default function AdminLoginPage() {
         </form>
         
         <div className="mt-8 text-center">
-            <button onClick={() => router.back()} className="text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:text-[#333333]">
-                ← Volver a resultados
+            
+            <button 
+              onClick={() => router.push("/")} 
+              className="text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:text-[#333333] transition-colors"
+            >
+                ← Volver al Inicio
             </button>
         </div>
       </div>

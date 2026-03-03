@@ -2,26 +2,21 @@
 import { motion, useSpring, useTransform, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
-// Datos locales sugeridos para HomeLab (puedes mover esto a ../data/stats si prefieres)
 const statsHomeLab = [
-    { count: "500", text: "TIPOS DE", subtext: "EXÁMENES" },
-    { count: "24", text: "HORAS", subtext: "RESULTADOS" },
-    { count: "10", text: "AÑOS DE", subtext: "EXPERIENCIA" },
-    { count: "100", text: "EFECTIVIDAD", subtext: "DIAGNÓSTICA" },
+    { count: "500", text: "TIPOS DE", subtext: "EXÁMENES", suffix: "+" },
+    { count: "24", text: "HORAS", subtext: "RESULTADOS", suffix: "" },
+    { count: "100", text: "EFECTIVIDAD", subtext: "DIAGNÓSTICA", suffix: "%" },
 ];
 
 function Counter({ value }: { value: string }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const numericValue = parseInt(value, 10);
-
-    const spring = useSpring(0, { mass: 0.8, stiffness: 75, damping: 15 });
+    const spring = useSpring(0, { mass: 1, stiffness: 60, damping: 20 });
     const display = useTransform(spring, (current) => Math.round(current));
 
     useEffect(() => {
-        if (isInView) {
-            spring.set(numericValue);
-        }
+        if (isInView) spring.set(numericValue);
     }, [isInView, numericValue, spring]);
 
     return <motion.span ref={ref}>{display}</motion.span>;
@@ -29,37 +24,54 @@ function Counter({ value }: { value: string }) {
 
 export default function Estadisticas() {
     return (
-        <div className="w-full bg-white py-16 md:py-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
+        <div className="relative w-full bg-white py-24 overflow-hidden">
+            {/* FONDO*/}
+            <div className="absolute inset-0 z-0 opacity-[0.05]" 
+                 style={{ backgroundImage: `linear-gradient(#D12E7B 0.5px, transparent 0.5px), linear-gradient(90deg, #D12E7B 0.5px, transparent 0.5px)`, backgroundSize: '40px 40px' }}>
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {statsHomeLab.map((item, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative p-4 rounded-2xl transition-all duration-300 hover:bg-gray-50"
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            className="relative flex flex-col items-center group"
                         >
-                            <div className="flex flex-col items-center justify-center">
-                                {/* Número con color Magenta de HomeLab */}
-                                <span className="text-5xl md:text-7xl font-black text-[#D12E7B] flex items-baseline">
-                                    <Counter value={item.count} />
-                                    {item.count === "100" && <span className="text-3xl ml-1">%</span>}
-                                    {item.count === "500" && <span className="text-3xl ml-1">+</span>}
-                                </span>
-                                
-                                <div className="mt-4 flex flex-col text-center">
-                                    <span className="font-bold text-[#333333] text-xs md:text-sm tracking-[0.2em] leading-tight uppercase">
-                                        {item.text}
-                                    </span>
-                                    <span className="font-medium text-[#333333]/60 text-xs md:text-sm tracking-[0.2em] leading-tight uppercase">
-                                        {item.subtext}
-                                    </span>
-                                </div>
+                            {/* Círculo de Brillo (Glow) Detrás del número */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#D12E7B] blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
 
-                                {/* Línea decorativa inferior que aparece al hacer hover */}
-                                <div className="w-0 group-hover:w-12 h-1 bg-[#D12E7B] mt-4 transition-all duration-300 rounded-full" />
+                            {/* Contenedor del Número */}
+                            <div className="relative mb-4">
+                                <span className="text-8xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#D12E7B] to-[#9b1b56] leading-none tracking-tighter drop-shadow-sm">
+                                    <Counter value={item.count} />
+                                    <span className="text-4xl md:text-5xl font-bold align-top mt-4 inline-block text-[#D12E7B]">
+                                        {item.suffix}
+                                    </span>
+                                </span>
+                            </div>
+
+                            {/* Textos con línea lateral */}
+                            <div className="relative pl-6 border-l-2 border-[#D12E7B]/20 group-hover:border-[#D12E7B] transition-colors duration-500 text-left w-fit">
+                                <h4 className="text-xl font-black text-gray-900 leading-none">
+                                    {item.text}
+                                </h4>
+                                <p className="text-xs font-bold text-[#D12E7B] tracking-[0.4em] uppercase mt-2">
+                                    {item.subtext}
+                                </p>
+                            </div>
+
+                            {/* Decoración: Barra de carga pequeña */}
+                            <div className="mt-8 flex gap-1">
+                                {[1, 2, 3, 4, 5].map((i) => (
+                                    <div 
+                                        key={i} 
+                                        className={`h-1 w-6 rounded-full transition-all duration-500 ${i <= 2 ? 'bg-[#D12E7B]' : 'bg-gray-100 group-hover:bg-[#D12E7B]/30'}`}
+                                    />
+                                ))}
                             </div>
                         </motion.div>
                     ))}

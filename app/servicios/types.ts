@@ -1,15 +1,11 @@
-// servicios/types.ts
+import { ReactNode } from "react";
 
-import { LucideIcon } from "lucide-react";
-// servicios/types.ts
 export interface Servicio {
-  id: number;
   title: string;
   description: string;
-  icon?: React.ReactNode; // Opcional por si usas iconos de Lucide o SVGs
-  image?: string;         // Por si usas fotos
+  examenes: string[]; // Ahora es una lista
+  icon?: ReactNode;
 }
-
 
 
 

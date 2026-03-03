@@ -8,7 +8,7 @@ const pasosResultados = [
         titulo: "Seguridad de Laboratorio",
         descripcion:
             "Implementamos estándares internacionales de bioseguridad y protección de datos médicos. Tus muestras y resultados son procesados bajo estricta confidencialidad y rigor científico.",
-        imagen: "/images/seguridad.avif",
+        imagen: "/images/seguridad.png",
         etiqueta: "Confianza"
     },
     {
@@ -24,7 +24,7 @@ const pasosResultados = [
         titulo: "Disponibilidad 24/7",
         descripcion:
             "Tu salud no tiene horario. El portal de HomeLab permanece activo las 24 horas del día, permitiéndote consultar tu historial médico en el momento exacto en que tú o tu médico lo necesiten.",
-        imagen: "/images/disponibilidad.jpg",
+        imagen: "/images/disponibilidad.jpeg",
         etiqueta: "Acceso Total"
     },
 ];

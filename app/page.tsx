@@ -6,6 +6,7 @@ import Estadisticas from "@/app/components/Estadisticas";
 import DoctorsSection from "@/app/components/ResultadoSection";
 import TeamSection from "@/app/components/TeamSection";
 import Link from "next/link";
+import CarouselHero from "./components/CarouselHero";
 
 export default function Home() {
   return (
@@ -88,7 +89,7 @@ export default function Home() {
 
             {/* Acción 2: Cotizador (WhatsApp) */}
             <a 
-              href="https://wa.me/51999999999?text=Hola%20HomeLab,%20me%20gustaría%20cotizar%20un%20análisis%20clínico." 
+              href="https://wa.me/51947052846?text=Hola%20HomeLab,%20me%20gustaría%20cotizar%20un%20análisis%20clínico." 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex-1 flex flex-col items-center group cursor-pointer"
@@ -108,17 +109,22 @@ export default function Home() {
             <div className="hidden md:block w-px h-16 bg-gray-200" />
 
             {/* Acción 3: Domicilio (Sin cambios de funcionalidad aún) */}
-            <div className="flex-1 flex flex-col items-center group cursor-not-allowed">
-              <div className="mb-4 text-[#333333] group-hover:text-[#D12E7B] transition-colors duration-300">
-                <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <div className="w-6 h-1 bg-[#D12E7B] mb-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#333333] text-center group-hover:text-[#D12E7B] transition-colors">
-                Servicio a domicilio
-              </span>
-            </div>
+            <Link 
+                href="/contactanos" 
+                className="flex-1 flex flex-col items-center group cursor-pointer transition-transform hover:-translate-y-1"
+              >
+                <div className="mb-4 text-[#333333] group-hover:text-[#D12E7B] transition-colors duration-300">
+                  <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                
+                <div className="w-6 h-1 bg-[#D12E7B] mb-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-[#333333] text-center group-hover:text-[#D12E7B] transition-colors">
+                  Servicio a domicilio
+                </span>
+              </Link>
 
             </div>
           </div>
@@ -143,15 +149,20 @@ export default function Home() {
       {/* Sección de Servicios - (Ahora categorías de laboratorio) */}
       <section id="servicios">
         <ServiciosFlip />
+
       </section>
 
-      {/* Sección de Staff Técnico o Especialistas */}
+      <CarouselHero />
+
+      {/* Sección de resultados */}
       <TeamSection />
+
+      
 
       {/* Sección de Tecnología / Equipos */}
       <DoctorsSection />
 
-      {/* Sección Agendar Toma de Muestra (Domicilio o Local) */}
+      
       
     </main>
   );
